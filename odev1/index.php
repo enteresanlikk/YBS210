@@ -62,25 +62,41 @@ function fibonacci_serisinde_mi($number) {
 </head>
 <body>
     <h2>
-        sifre_gucunu_hesapla('gucLUS123') => <?= sifre_gucunu_hesapla('gucLUS123') ?>
+        Şifre Gücü Hesapla
     </h2>
-    <h2>
-        sifre_gucunu_hesapla('_BiLaL_34_34.d') => <?= sifre_gucunu_hesapla('_BiLaL_34_34.d') ?>
-    </h2>
-    <h2>
-        sifre_gucunu_hesapla('test') => <?= sifre_gucunu_hesapla('test') ?>
-    </h2>
+    <form action="" method="post">
+        <?php
+            $password = $_POST["password"] ?? '';
+        ?>
+        
+        <input type="text" name="password" required value="<?= $password ?>"/>
+        <input type="submit" name="sifrePuanHesapla">
+
+        <?php if(isset($_POST["sifrePuanHesapla"])): ?>
+            <h3>
+                <?= sifre_gucunu_hesapla($password); ?>
+            </h3>
+        <?php endif; ?>
+    </form>
 
     <hr>
-    
+
     <h2>
-        fibonacci_serisinde_mi(5) => <?= fibonacci_serisinde_mi(5) ?>
+        Fibonacci Serisinde mi?
     </h2>
-    <h2>
-        fibonacci_serisinde_mi(7) => <?= fibonacci_serisinde_mi(7) ?>
-    </h2>
-    <h2>
-        fibonacci_serisinde_mi(13) => <?= fibonacci_serisinde_mi(13) ?>
-    </h2>
+    <form action="" method="post">
+        <?php
+            $fib = $_POST["fib"] ?? '';
+        ?>
+
+        <input type="number" name="fib" required value="<?= $fib ?>"/>
+        <input type="submit" name="fibonacciHesapla">
+
+        <?php if(isset($_POST["fibonacciHesapla"])): ?>
+            <h3>
+                <?= fibonacci_serisinde_mi($fib); ?>
+            </h3>
+        <?php endif; ?>
+    </form>
 </body>
 </html>
