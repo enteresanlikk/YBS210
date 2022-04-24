@@ -17,8 +17,8 @@
 
     Yazacağınız PHP fonksiyonu ile bir sayınının Fibonacci serisinde yer alıp almadığını bulunuz. Fonksiyona gönderilen sayı Fibonacci serisinde yer alıyorsa TRUE, değilse FALSE döndürmelidir.
 
-Örnek:
-```php
-fibonacci_serisinde_mi(5) => "TRUE"
-fibonacci_serisinde_mi(7) => "FALSE"
-```
+    Örnek:
+    ```php
+    fibonacci_serisinde_mi(5) => "TRUE"
+    fibonacci_serisinde_mi(7) => "FALSE"
+    ```
