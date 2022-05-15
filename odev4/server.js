@@ -28,42 +28,38 @@ const weatherApi = async ({ city, lat, lon }) => {
     return null;
 }
 
-const locations = {
-    ankara: {
+const locations = [
+    {
         city: 'Ankara',
         lat: '39.925533',
         lon: '32.866287'
     },
-    istanbul: {
+    {
         city: 'İstanbul',
         lat: '41.015137',
         lon: '28.979530'
     },
-    izmir: {
+    {
         city: 'İzmir',
         lat: '38.423733',
         lon: '27.142826'
     },
-    adana: {
+    {
         city: 'Adana',
         lat: '37.000000',
         lon: '35.321335'
     }
-};
+];
 
 app.get('/', async (req, res) => {
     try {
-        const ankara = await weatherApi(locations.ankara);
-        const istanbul = await weatherApi(locations.istanbul);
-        const izmir = await weatherApi(locations.izmir);
-        const adana = await weatherApi(locations.adana);
-    
-        let values = [
-            ankara,
-            istanbul,
-            izmir,
-            adana
-        ];
+        let promises = [];
+        locations.map(item => {
+            const promise = weatherApi(item);
+            promises.push(promise);
+        });
+
+        const values = await Promise.all(promises);
     
         values.sort((a, b) => {
             return b.value - a.value;
