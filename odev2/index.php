@@ -1,4 +1,6 @@
 <?php
+	//https://github.com/enteresanlikk/YBS210/blob/master/odev2/index.php
+
     class Response {
         public function __construct($success = false, $message = '', $data = null)
         {
